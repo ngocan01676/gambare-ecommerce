@@ -1,11 +1,15 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { DATABASE_CONNECTION_NAME } from 'src/common/database/constants/database.constant';
-import { ProductsEntity, ProductsEntitySchema } from './entities/products.entity';
+import {
+    ProductsEntity,
+    ProductsEntitySchema,
+} from './entities/products.entity';
+import { ProductRepository } from './repositories/product.repository';
 
 @Module({
-    providers: [],
-    exports: [],
+    providers: [ProductRepository],
+    exports: [ProductRepository],
     controllers: [],
     imports: [
         MongooseModule.forFeature(

@@ -10,6 +10,7 @@ import { MigrationSettingSeed } from 'src/migration/seeds/migration.setting.seed
 import { MigrationUserSeed } from 'src/migration/seeds/migration.user.seed';
 import { PasswordResetModule } from 'src/modules/password_resets/password_reset.module';
 import { PermissionModule } from 'src/modules/permission/permission.module';
+import { ProductsModule } from 'src/modules/products/products.module';
 import { RoleModule } from 'src/modules/role/role.module';
 import { UserModule } from 'src/modules/user/user.module';
 
@@ -22,7 +23,8 @@ import { UserModule } from 'src/modules/user/user.module';
         UserModule,
         RoleModule,
         AuthModule,
-        PasswordResetModule
+        PasswordResetModule,
+        ProductsModule,
     ],
     providers: [
         MigrationApiKeySeed,
