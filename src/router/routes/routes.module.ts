@@ -7,6 +7,7 @@ import { SettingController } from 'src/common/setting/controllers/setting.contro
 import { HealthController } from 'src/health/controllers/health.controller';
 import { HealthModule } from 'src/health/health.module';
 import { ProductsController } from 'src/modules/products/controllers/products.controller';
+import { ProductsModule } from 'src/modules/products/products.module';
 import { RoleModule } from 'src/modules/role/role.module';
 import { UserController } from 'src/modules/user/controllers/user.controller';
 import { UserModule } from 'src/modules/user/user.module';
@@ -28,6 +29,7 @@ import { UserModule } from 'src/modules/user/user.module';
         AuthModule,
         HealthModule,
         RoleModule,
+        ProductsModule,
     ],
 })
 export class RoutesModule {}

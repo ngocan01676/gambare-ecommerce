@@ -3,8 +3,8 @@ import { CallbackWithoutResultAndOptionalError } from 'mongoose';
 import { DatabaseMongoUUIDEntityAbstract } from 'src/common/database/abstracts/mongo/entities/database.mongo.uuid.entity.abstract';
 import { DatabaseEntity } from 'src/common/database/decorators/database.decorator';
 
-const ColorDatabaseName = 'products';
-@DatabaseEntity({ collection: ColorDatabaseName })
+const ProductDatabaseName = 'products';
+@DatabaseEntity({ collection: ProductDatabaseName })
 export class ProductsEntity extends DatabaseMongoUUIDEntityAbstract {
     @Prop({
         type: String,
@@ -29,91 +29,110 @@ export class ProductsEntity extends DatabaseMongoUUIDEntityAbstract {
     @Prop({
         type: String,
         required: false,
+        nullable: true,
     })
-    categoryId: string;
+    categoryId?: string;
     @Prop({
         type: String,
         required: false,
+        nullable: true,
     })
-    brandsId: string;
+    brandsId?: string;
     @Prop({
         type: String,
         required: false,
+        nullable: true,
     })
-    photos: string;
+    photos?: string;
     @Prop({
         type: String,
         required: false,
+        nullable: true,
     })
-    thumbnailImg: string;
+    thumbnailImg?: string;
     @Prop({
         type: String,
         required: false,
+        nullable: true,
     })
-    videoProvider: string;
+    videoProvider?: string;
     @Prop({
         type: String,
+        nullable: true,
+        required: false,
     })
-    videoLink: string;
+    videoLink?: string;
     @Prop({
         type: String,
         required: false,
+        nullable: true,
     })
-    tags: string;
+    tags?: string;
     @Prop({
         type: String,
+        required: false,
+        nullable: true,
     })
-    description: string;
+    description?: string;
     @Prop({
         type: Number,
         required: false,
+        nullable: true,
     })
-    unitPrice: number;
+    unitPrice?: number;
     @Prop({
         type: Number,
         required: false,
+        nullable: true,
     })
-    purchasePrice: number;
+    purchasePrice?: number;
     @Prop({
         type: Number,
         required: false,
+        nullable: true,
     })
-    variantProduct: number;
+    variantProduct?: number;
+    @Prop({
+        type: String,
+        required: false,
+        nullable: true,
+    })
+    attributes?: string;
     @Prop({
         type: String,
         required: false,
     })
-    attributes: string;
+    choiceOptions?: string;
     @Prop({
         type: String,
         required: false,
+        nullable: true,
     })
-    choiceOptions: string;
+    colors?: string;
     @Prop({
         type: String,
         required: false,
+        nullable: true,
     })
-    colors: string;
-    @Prop({
-        type: String,
-        required: false,
-    })
-    variations: string;
+    variations?: string;
     @Prop({
         type: Number,
         required: false,
+        nullable: true,
     })
-    todayDeals: number;
+    todayDeals?: number;
     @Prop({
         type: Number,
         required: false,
+        nullable: true,
     })
-    published: number;
+    published?: number;
     @Prop({
         type: Number,
         required: false,
+        nullable: true,
     })
-    approved: number;
+    approved?: number;
     @Prop({
         type: String,
         required: true,
@@ -147,103 +166,116 @@ export class ProductsEntity extends DatabaseMongoUUIDEntityAbstract {
     @Prop({
         type: String,
         required: false,
+        nullable: true,
     })
-    unit: string;
+    unit?: string;
     @Prop({
         type: Number,
         required: true,
         default: 1,
     })
-    minQty: number;
+    minQty?: number;
     @Prop({
         type: Number,
         required: false,
+        nullable: true,
     })
-    lowStockQuantity: number;
+    lowStockQuantity?: number;
     @Prop({
         type: Number,
         required: false,
+        nullable: true,
     })
-    discount: string;
+    discount?: string;
     @Prop({
         type: String,
         required: false,
-        maxlength: 30,
+        nullable: true,
     })
-    discountType: string;
+    discountType?: string;
+    @Prop({
+        type: Date,
+        required: false,
+        nullable: true,
+    })
+    discountStartDate?: Date;
     @Prop({
         type: Date,
         required: false,
     })
-    discountStartDate: Date;
-    @Prop({
-        type: Date,
-        required: false,
-    })
-    discountEndDate: Date;
+    discountEndDate?: Date;
     @Prop({
         type: Number,
         required: false,
+        nullable: true,
     })
-    tax: number;
+    tax?: number;
     @Prop({
         type: String,
         required: false,
+        nullable: true,
     })
-    taxType: string;
+    taxType?: string;
     @Prop({
         type: String,
         required: false,
         default: 'flat_rate',
+        nullable: true,
     })
-    shippingType: string;
+    shippingType?: string;
     @Prop({
         type: Number,
         required: false,
+        nullable: true,
     })
-    shippingCost: number;
-    @Prop({
-        type: Number,
-        required: false,
-        default: 0,
-    })
-    isQuantityMultiplied: number;
-    @Prop({
-        type: Number,
-        required: false,
-    })
-    estShippingDays: number;
+    shippingCost?: number;
     @Prop({
         type: Number,
         required: false,
         default: 0,
     })
-    numOfSale: number;
+    isQuantityMultiplied?: number;
+    @Prop({
+        type: Number,
+        required: false,
+        nullable: true,
+    })
+    estShippingDays?: number;
+    @Prop({
+        type: Number,
+        required: false,
+        default: 0,
+        nullable: true,
+    })
+    numOfSale?: number;
+    @Prop({
+        type: String,
+        required: false,
+        nullable: true,
+    })
+    metaTitle?: string;
+    @Prop({
+        type: String,
+        required: false,
+        nullable: true,
+    })
+    metaDescription?: string;
     @Prop({
         type: String,
         required: false,
     })
-    metaTitle: string;
+    metaImg?: string;
+    @Prop({
+        type: String,
+        required: false,
+        nullable: true,
+    })
+    pdf?: string;
     @Prop({
         type: String,
         required: false,
     })
-    metaDescription: string;
-    @Prop({
-        type: String,
-        required: false,
-    })
-    metaImg: string;
-    @Prop({
-        type: String,
-        required: false,
-    })
-    pdf: string;
-    @Prop({
-        type: String,
-        required: false,
-    })
-    slug: string;
+    slug?: string;
     @Prop({
         type: Number,
         required: true,
@@ -265,8 +297,9 @@ export class ProductsEntity extends DatabaseMongoUUIDEntityAbstract {
     @Prop({
         type: String,
         required: false,
+        nullable: true,
     })
-    barCode: string;
+    barCode?: string;
     @Prop({
         type: Number,
         required: true,
@@ -282,61 +315,107 @@ export class ProductsEntity extends DatabaseMongoUUIDEntityAbstract {
     @Prop({
         type: String,
         required: false,
+        nullable: true,
     })
-    fileName: string;
+    fileName?: string;
     @Prop({
         type: String,
         required: false,
+        nullable: true,
     })
-    filePath: string;
+    filePath?: string;
     @Prop({
         type: String,
         required: false,
+        nullable: true,
     })
-    externalLink: string;
+    externalLink?: string;
     @Prop({
         type: String,
         required: false,
         default: 'Buy Now',
+        nullable: true,
     })
-    externalLinkBtn: string;
+    externalLinkBtn?: string;
     @Prop({
         type: Number,
         required: false,
         default: 0,
+        nullable: true,
     })
-    wholesaleProduct: number;
+    wholesaleProduct?: number;
     @Prop({
         type: Number,
         required: false,
+        nullable: true,
     })
-    quantitySold: number;
+    quantitySold?: number;
     @Prop({
         type: String,
         required: false,
     })
-    descriptionInfo: string;
+    descriptionInfo?: string;
     @Prop({
         type: Number,
         required: false,
         default: 0,
+        nullable: true,
     })
-    jointPurchasing: number;
+    jointPurchasing?: number;
     @Prop({
         type: String,
         required: false,
+        nullable: true,
     })
-    tenantShippingId: string;
+    tenantShippingId?: string;
     @Prop({
         type: String,
         required: false,
+        nullable: true,
     })
-    attrValue: string;
+    attrValue?: string;
     @Prop({
         type: Number,
         required: false,
     })
     entryPrice: number;
+    @Prop({
+        required: true,
+        default: true,
+        index: true,
+        type: Boolean,
+    })
+    isActive: boolean;
+
+    @Prop({
+        required: true,
+        default: false,
+        index: true,
+        type: Boolean,
+    })
+    inactivePermanent: boolean;
+
+    @Prop({
+        required: false,
+        type: Date,
+        nullable: true,
+    })
+    inactiveDate?: Date;
+
+    @Prop({
+        required: true,
+        default: false,
+        index: true,
+        type: Boolean,
+    })
+    blocked: boolean;
+
+    @Prop({
+        required: false,
+        type: Date,
+        nullable: true,
+    })
+    blockedDate?: Date;
 }
 
 export const ProductsEntitySchema =

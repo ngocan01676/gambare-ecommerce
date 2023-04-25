@@ -1,0 +1,25 @@
+{
+    "list": "List Product Success.",
+    "get": "Get Product Success.",
+    "create": "Create Product Success.",
+    "delete": "Delete Product Success.",
+    "update": "Update Product Success.",
+    "profile": "Profile Success",
+    "upload": "Upload Success",
+    "inactive": "Inactive Succeed",
+    "active": "Active Succeed",
+    "login": "Login success.",
+    "refresh": "Refresh token success",
+    "signUp": "Sign up Success",
+    "error": {
+        "notFound": "Product not found.",
+        "emailExist": "Email Product used",
+        "mobileNumberExist": "Mobile Number Product used",
+        "active": "Product status active invalid",
+        "exist": "Product exist",
+        "passwordNotMatch": "Password not match",
+        "newPasswordMustDifference": "Old password must difference",
+        "inactive": "Product is inactive",
+        "passwordExpired": "Product password expired"
+    }
+}

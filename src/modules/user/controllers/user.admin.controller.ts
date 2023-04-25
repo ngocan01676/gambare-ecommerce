@@ -99,12 +99,12 @@ export class UserAdminController {
         private readonly roleService: RoleService
     ) {}
 
-    @UserListDoc()
+    //@UserListDoc()
     @ResponsePaging('user.list', {
         serialization: UserListSerialization,
     })
-    @AuthPermissionProtected(ENUM_AUTH_PERMISSIONS.USER_READ)
-    @AuthJwtAdminAccessProtected()
+    // @AuthPermissionProtected(ENUM_AUTH_PERMISSIONS.USER_READ)
+    // @AuthJwtAdminAccessProtected()
     @Get('/list')
     async list(
         @PaginationQuery(
@@ -174,11 +174,11 @@ export class UserAdminController {
     @Response('user.create', {
         serialization: ResponseIdSerialization,
     })
-    @AuthPermissionProtected(
-        ENUM_AUTH_PERMISSIONS.USER_READ,
-        ENUM_AUTH_PERMISSIONS.USER_CREATE
-    )
-    @AuthJwtAdminAccessProtected()
+    // @AuthPermissionProtected(
+    //     ENUM_AUTH_PERMISSIONS.USER_READ,
+    //     ENUM_AUTH_PERMISSIONS.USER_CREATE
+    // )
+    // @AuthJwtAdminAccessProtected()
     @Post('/create')
     async create(
         @Body()

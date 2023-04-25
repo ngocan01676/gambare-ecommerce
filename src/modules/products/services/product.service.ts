@@ -8,7 +8,9 @@ import { ProductCreateDto } from '../dtos/product.create.dto';
 import { IProductService } from '../interfaces/product.service.interface';
 import { ProductsEntity } from '../repository/entities/products.entity';
 import { ProductRepository } from '../repository/repositories/product.repository';
+import { Injectable } from '@nestjs/common';
 
+@Injectable()
 export class ProductService implements IProductService {
     constructor(private readonly productRepository: ProductRepository) {}
 
@@ -16,35 +18,35 @@ export class ProductService implements IProductService {
         find?: Record<string, any>,
         options?: IDatabaseFindAllOptions<any>
     ): Promise<T[]> {
-        throw new Error('Method not implemented.');
+        return this.productRepository.findAll(find, options);
     }
 
     findOneById<T>(
         _id: string,
         options?: IDatabaseFindOneOptions<any>
     ): Promise<T> {
-        throw new Error('Method not implemented.');
+        return this.productRepository.findOneById(_id, options);
     }
 
     findOne<T>(
         find: Record<string, any>,
         options?: IDatabaseFindOneOptions<any>
     ): Promise<T> {
-        throw new Error('Method not implemented.');
+        return this.productRepository.findOne(find, options);
     }
 
     findOneByUsername<T>(
         username: string,
         options?: IDatabaseFindOneOptions<any>
     ): Promise<T> {
-        throw new Error('Method not implemented.');
+        return this.productRepository.findOne<T>({ username }, options);
     }
 
     getTotal(
         find?: Record<string, any>,
         options?: IDatabaseOptions
     ): Promise<number> {
-        throw new Error('Method not implemented.');
+        return this.productRepository.getTotal(find, options);
     }
 
     create(
@@ -53,6 +55,7 @@ export class ProductService implements IProductService {
     ): Promise<ProductsEntity> {
         const create = new ProductsEntity();
         create.name = data.name;
+        create.userId = data.userId;
         create.addedBy = data.addedBy;
         create.attrValue = data.attrValue;
         create.purchasePrice = data.purchasePrice;
@@ -64,6 +67,11 @@ export class ProductService implements IProductService {
         create.colors = data.colors;
         create.categoryId = data.categoryId;
         create.brandsId = data.brandsId;
+        //return Promise.resolve(new ProductsEntity());
         return this.productRepository.create(create, options);
+    }
+
+    test() {
+        return 'test FUNC';
     }
 }
