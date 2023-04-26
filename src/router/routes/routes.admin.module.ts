@@ -9,6 +9,8 @@ import { ProductsAdminController } from 'src/modules/products/controllers/produc
 import { ProductsModule } from 'src/modules/products/products.module';
 import { RoleAdminController } from 'src/modules/role/controllers/role.admin.controller';
 import { RoleModule } from 'src/modules/role/role.module';
+import { UploadAdminController } from 'src/modules/uploads/controllers/upload.admin.controller';
+import { UploadModule } from 'src/modules/uploads/upload.module';
 import { UserAdminController } from 'src/modules/user/controllers/user.admin.controller';
 import { UserModule } from 'src/modules/user/user.module';
 
@@ -20,6 +22,7 @@ import { UserModule } from 'src/modules/user/user.module';
         UserAdminController,
         ApiKeyAdminController,
         ProductsAdminController,
+        UploadAdminController,
     ],
     providers: [],
     exports: [],
@@ -30,6 +33,7 @@ import { UserModule } from 'src/modules/user/user.module';
         AuthModule,
         ApiKeyModule,
         ProductsModule,
+        UploadModule,
     ],
 })
 export class RoutesAdminModule {}

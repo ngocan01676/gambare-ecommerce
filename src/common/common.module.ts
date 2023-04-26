@@ -20,11 +20,23 @@ import { DatabaseOptionsModule } from 'src/common/database/database.options.modu
 import { DATABASE_CONNECTION_NAME } from 'src/common/database/constants/database.constant';
 import { ENUM_APP_ENVIRONMENT } from 'src/app/constants/app.enum.constant';
 import { APP_LANGUAGE } from 'src/app/constants/app.constant';
+import { MulterModule } from '@nestjs/platform-express';
+import * as path from 'path';
 
 @Module({
     controllers: [],
     providers: [],
     imports: [
+        // MulterModule.register({
+        //     //dest: path.join(__dirname, '../../public/uploads'),
+        //     dest: './upload',
+        // }),
+        MulterModule.registerAsync({
+            useFactory: () => ({
+                //dest: './upload',
+                dest: path.join(__dirname, '../../../public/uploads'),
+            }),
+        }),
         ConfigModule.forRoot({
             load: configs,
             isGlobal: true,

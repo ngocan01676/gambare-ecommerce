@@ -40,7 +40,7 @@ export class UploadEntity extends DatabaseMongoUUIDEntityAbstract {
         required: false,
         type: String,
     })
-    type: string;
+    fileType: string;
 
     @Prop({
         required: false,

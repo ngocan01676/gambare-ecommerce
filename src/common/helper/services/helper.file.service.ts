@@ -9,6 +9,7 @@ import {
     IHelperFileCreateExcelWorkbookOptions,
 } from 'src/common/helper/interfaces/helper.interface';
 import { utils, write, read, WorkBook } from 'xlsx';
+import { extname } from 'path';
 
 @Injectable()
 export class HelperFileService implements IHelperFileService {
@@ -72,5 +73,15 @@ export class HelperFileService implements IHelperFileService {
 
     convertToBytes(megabytes: string): number {
         return bytes(megabytes);
+    }
+
+    editFileName(req, file, callback) {
+        const name = file.originalname.split('.')[0];
+        const fileExtName = extname(file.originalname);
+        const randomName = Array(4)
+            .fill(null)
+            .map(() => Math.round(Math.random() * 16).toString(16))
+            .join('');
+        callback(null, `${name}-${randomName}${fileExtName}`);
     }
 }
